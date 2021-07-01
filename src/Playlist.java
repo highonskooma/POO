@@ -65,7 +65,21 @@ public class Playlist {
     public Map<Integer,List<Track>> tracksByRating() {
         HashMap<Integer,List<Track>> res = new HashMap<>();
 
+        for (Map.Entry<String,List<Track>> entry : songs.entrySet()) {
+            String key = entry.getKey();
+            List<Track> value = entry.getValue();
+            for (Track t : value) {
+                if (res.containsKey(t.getRating())){
+                    res.get(t.getRating()).add(t.clone());
+                }
+                else {
+                    ArrayList<Track> list = new ArrayList<>();
+                    list.add(t.clone());
+                    res.put(t.getRating(),list);
+                }
+            }
 
+        }
         return res;
     }
 

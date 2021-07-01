@@ -16,10 +16,10 @@ public class Main {
         LocalDateTime dateTime = LocalDateTime.parse(date, formatter);
 
         Track t1 = new Track("Akina Speedstar","Xavier Wulf",2.3,5,lyrics,26885420,dateTime);
-        Track t2 = new Track("Psycho Pass","Xavier Wulf",2.15,5,lyrics,30885420,dateTime);
+        Track t2 = new Track("Psycho Pass","Xavier Wulf",2.15,4,lyrics,30885420,dateTime);
 
-        Track t3 = new Track("Spun","Chelsea Wolfe",5.28,5,lyrics,120450,dateTime);
-        Track t4 = new Track("Vex","Chelsea Wolfe",3.02,5,lyrics,90400,dateTime);
+        Track t3 = new Track("Spun","Chelsea Wolfe",5.28,3,lyrics,120450,dateTime);
+        Track t4 = new Track("Vex","Chelsea Wolfe",3.02,3,lyrics,90400,dateTime);
 
 
         Playlist playlist = new Playlist();
@@ -34,6 +34,7 @@ public class Main {
         System.out.println("teste1: "+playlist.getTracks("Xavier Wulf"));
         System.out.println("teste2: "+playlist.tempoTotal("Chelsea Wolfe"));
         System.out.println("teste3: "+playlist.allTracks());
+        System.out.println("teste4: "+playlist.tracksByRating());
 
 
     }

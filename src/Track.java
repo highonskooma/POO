@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Track {
+public class Track implements Playable {
     private String name;
     private String author;
     private double duration;
@@ -10,6 +10,16 @@ public class Track {
     private ArrayList<String> lyrics;
     private int timesPlayed;
     private LocalDateTime lastPlayed;
+
+    public Track() {
+        this.name = "n/a";
+        this.author = "n/a";
+        this.duration = 0;
+        this.rating = 0;
+        this.lyrics = new ArrayList<>();
+        this.timesPlayed = 0;
+        this.lastPlayed = LocalDateTime.now();
+    }
 
     public Track(String name, String author, double duration, int rating,
                  ArrayList<String> lyrics, int timesPlayed, LocalDateTime lastPlayed){
@@ -30,6 +40,10 @@ public class Track {
         this.lyrics = t.getLyrics();
         this.timesPlayed = t.getTimesPlayed();
         this.lastPlayed = t.getLastPlayed();
+
+    }
+
+    public void play() {
 
     }
 
