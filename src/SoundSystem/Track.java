@@ -1,4 +1,5 @@
-import java.time.LocalDate;
+package SoundSystem;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -98,11 +99,6 @@ public class Track implements Playable {
     public String toString() {
         return "{ name='" + name + '\'' +
                 ", author='" + author + '\'' +
-                ", duration=" + duration +
-                ", rating=" + rating +
-                ", lyrics=" + lyrics +
-                ", timesPlayed=" + timesPlayed +
-                ", lastPlayed=" + lastPlayed +
                 " }\n";
     }
 

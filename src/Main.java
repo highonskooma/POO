@@ -1,10 +1,10 @@
 import Exceptions.NoSuchAuthorException;
+import SoundSystem.Playlist;
+import SoundSystem.Track;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws NoSuchAuthorException {
@@ -34,7 +34,7 @@ public class Main {
         System.out.println("teste1: "+playlist.getTracks("Xavier Wulf"));
         System.out.println("teste2: "+playlist.tempoTotal("Chelsea Wolfe"));
         System.out.println("teste3: "+playlist.allTracks());
-        System.out.println("teste4: "+playlist.tracksByRating());
+        System.out.println("teste4: "+playlist.tracksByRating2());
 
 
     }

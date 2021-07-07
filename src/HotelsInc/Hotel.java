@@ -1,5 +1,7 @@
+package HotelsInc;
+
 /**
- * Classe base Hotel
+ * Classe base HotelsInc.Hotel
  * @author Rui Couto
  * @version 1.0
  *
@@ -181,11 +183,11 @@ public class Hotel implements Comparable<Hotel> {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Hotel '").append(nome).append("'\n");
+        sb.append("HotelsInc.Hotel '").append(nome).append("'\n");
         sb.append("(").append(this.codigo).append(") ").append(this.localidade);
-        sb.append("Preço por quarto: ").append(this.precoQuarto).append("€");
-        sb.append("Numero de Quartos: ").append(this.numeroQuartos);
-        sb.append("Estrelas: ").append(this.estrelas).append("**");
+        sb.append(" Preço por quarto: ").append(this.precoQuarto).append("€");
+        sb.append(" Numero de Quartos: ").append(this.numeroQuartos);
+        sb.append(" Estrelas: ").append(this.estrelas).append("**");
         return sb.toString();
     }
 
@@ -209,7 +211,7 @@ public class Hotel implements Comparable<Hotel> {
 
 
     /**
-     * Implementação da ordem natural de comparação de instâncias de Hotel.
+     * Implementação da ordem natural de comparação de instâncias de HotelsInc.Hotel.
      * Por simplificação, apenas se está a comparar os códigos.
      *
      */

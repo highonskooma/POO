@@ -1,9 +1,8 @@
+package SoundSystem;
+
 import Exceptions.NoSuchAuthorException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
@@ -83,6 +82,30 @@ public class Playlist {
         return res;
     }
 
+    /**
+     * Another implementation this time with internal iterators
+     * @return Map
+     */
+    public Map<Integer,List<Track>> tracksByRating2() {
+        HashMap<Integer,List<Track>> res = new HashMap<>();
+        Iterator<Map.Entry<String, List<Track>>> it = songs.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String,List<Track>> entry = it.next();
+            Iterator<Track> track = entry.getValue().iterator();
+            while (track.hasNext()) {
+                Track t = track.next();
+                if (res.containsKey(t.getRating())) {
+                    res.get(t.getRating()).add(t.clone());
+                } else {
+                    ArrayList<Track> list = new ArrayList<>();
+                    list.add(t.clone());
+                    res.put(t.getRating(), list);
+                }
+            }
+        }
+        return res;
+    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -102,7 +125,7 @@ public class Playlist {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Playlist name: "+this.name+"\n");
+        sb.append("SoundSystem.Playlist name: "+this.name+"\n");
         for(String author : this.songs.keySet()){
             sb.append("Author name: "+author+"\n");
             for(Track t : this.songs.get(author)){
