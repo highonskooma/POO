@@ -71,7 +71,7 @@ public class Hotel implements Comparable<Hotel> {
      * Calcula o preço de uma noite no hotel
      * @return
      */
-    public double precoQuarto() {
+    public double roomPrice() {
         return this.precoQuarto;
     }
 

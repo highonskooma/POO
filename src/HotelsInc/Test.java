@@ -17,14 +17,22 @@ public class Test {
 
         HoteisInc hoteisInc = new HoteisInc(map);
 
-        Hotel h4 = new Hotel("004","Nier Tribute","Lisboa",345,230,5);
+        HotelStandard h4 = new HotelStandard("004","Nier Tribute","Lisboa",345,230,5,true);
         hoteisInc.addHotel(h4);
+        HotelPremium h5 = new HotelPremium("005","Axis","Viana",366,500,4,0.3);
+        hoteisInc.addHotel(h5);
+        HotelDiscount h6 = new HotelDiscount("006","Lux","Porto",150,240,3,0.7);
+        hoteisInc.addHotel(h6);
 
-        System.out.println("is there a hotel woth code 002?: "+hoteisInc.existsHotel("002"));
+        System.out.println("is there a hotel with code 002?: "+hoteisInc.existsHotel("002"));
         System.out.println("number of hotels: "+hoteisInc.howMany());
         System.out.println("number of hotels in braga: "+hoteisInc.howManyInACity("Braga"));
         System.out.println("list of all hotels: "+hoteisInc.getHoteis());
-
+        System.out.println("price per night of a Standard Hotel: "+h4.pricePerNight());
+        System.out.println("price per night of a Premium Hotel: "+h5.pricePerNight());
+        System.out.println("number of hotels with Premium type: "+hoteisInc.howManyOfAType("HotelPremium"));
+        System.out.println("price of Discount Hotel with 70% ocupation: "+h6.priceByNight());
+        System.out.println("total revenue of all hotels in 1 day: "+hoteisInc.totalRevenue());
 
     }
 }

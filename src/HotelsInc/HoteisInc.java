@@ -30,6 +30,20 @@ public class HoteisInc {
         return (int) this.hotels.values().stream().filter(a->a.getLocalidade().equals(city)).count();
     }
 
+    /**
+     * Devolve a quantidade de hoteis de um determinado
+     * tipo (Premium,Standard,...)
+     * @param type
+     */
+    public int howManyOfAType(String type) {
+        int res = 0;
+        for (Hotel h : this.hotels.values()){
+            String tipo = h.getClass().getSimpleName();
+            if (tipo.equals(type)) {res+=1;}
+        }
+        return res;
+    }
+
     public List<Hotel> getHoteis() {
         return new ArrayList<>(this.hotels.values());
     }
@@ -50,5 +64,31 @@ public class HoteisInc {
     public Hotel getHotel(String id) {
         return this.hotels.get(id);
     }
+
+    public void changeEpoca() {
+        for (Hotel h : this.hotels.values()) {
+            if (h instanceof HotelStandard) {
+                HotelStandard stand = (HotelStandard) h;
+                if (stand.getEpocaAlta()) {
+                    stand.setEpocaAlta(false);
+                } else {
+                    stand.setEpocaAlta(true);
+                }
+            }
+        }
+    }
+
+    public double totalRevenue() {
+        double res=0;
+        for (Hotel h : this.hotels.values()) {
+            if (h instanceof HotelDiscount){res+=((HotelDiscount) h).priceByNight()* h.getNumeroQuartos();}
+            if (h instanceof HotelPremium){res+=((HotelPremium) h).pricePerNight()*h.getNumeroQuartos();}
+            if (h instanceof HotelDiscount){res+=((HotelDiscount) h).priceByNight()* h.getNumeroQuartos();}
+            else {res+=h.roomPrice()* h.getNumeroQuartos();}
+        }
+        return res;
+    }
+
+
 
 }
