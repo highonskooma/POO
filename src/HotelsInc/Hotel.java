@@ -187,7 +187,7 @@ public class Hotel implements Comparable<Hotel> {
         sb.append("(").append(this.codigo).append(") ").append(this.localidade);
         sb.append(" Preço por quarto: ").append(this.precoQuarto).append("€");
         sb.append(" Numero de Quartos: ").append(this.numeroQuartos);
-        sb.append(" Estrelas: ").append(this.estrelas).append("**");
+        sb.append(" Estrelas: ").append(this.estrelas).append("** ");
         return sb.toString();
     }
 

@@ -48,6 +48,9 @@ public class HoteisInc {
         return new ArrayList<>(this.hotels.values());
     }
 
+    public HashMap<String, Hotel> getHotels() {
+        return hotels;
+    }
 
     public void addHotels(Set<Hotel> hl) {
         Iterator<Hotel> it = hl.iterator();
@@ -87,6 +90,25 @@ public class HoteisInc {
             else {res+=h.roomPrice()* h.getNumeroQuartos();}
         }
         return res;
+    }
+
+
+    public TreeSet<Hotel> orderHotels() {
+        TreeSet<Hotel> hotels = new TreeSet<>();
+        for (Hotel h : this.hotels.values()) {
+            hotels.add(h.clone());
+        }
+        return hotels;
+    }
+
+    public TreeSet<Hotel> orderHotels(Comparator<Hotel> c) {
+        //ArrayList<Hotel> hotels = new ArrayList<>(this.hotels.values());
+        //Collections.sort(hotels,c);
+        TreeSet<Hotel> tree = new TreeSet<>(c);
+        for (Hotel h : this.hotels.values()) {
+            tree.add(h.clone());
+        }
+        return tree;
     }
 
 
