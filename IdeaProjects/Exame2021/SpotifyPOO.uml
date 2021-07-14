@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/blackgaze/Documents/IdeaProjects/Exame2021/src</OriginalElement>
+  <nodes>
+    <node x="38.8035714285715" y="0.0">Episodio</node>
+    <node x="0.0" y="601.0">SpotifyPOO</node>
+    <node x="94.01190476190479" y="255.0">Podcast</node>
+    <node x="66.73214285714289" y="416.0">Utilizador</node>
+    <node x="372.7321428571429" y="452.5">Main</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="SpotifyPOO" target="Podcast" relationship="TO_MANY">
+      <point x="-202.0" y="-66.5" />
+      <point x="50.5" y="575.0" />
+      <point x="56.23214285714289" y="575.0" />
+      <point x="56.23214285714289" y="395.0" />
+      <point x="99.88690476190482" y="395.0" />
+      <point x="99.88690476190482" y="385.0" />
+      <point x="153.0119047619048" y="385.0" />
+      <point x="-59.0" y="54.5" />
+    </edge>
+    <edge source="SpotifyPOO" target="Episodio" relationship="DEPENDENCY">
+      <point x="202.0" y="-66.5" />
+      <point x="454.5" y="575.0" />
+      <point x="473.2321428571429" y="575.0" />
+      <point x="473.2321428571429" y="235.0" />
+      <point x="454.94047619047626" y="235.0" />
+      <point x="454.94047619047626" y="225.0" />
+      <point x="359.80357142857144" y="225.0" />
+      <point x="106.99999999999997" y="102.5" />
+    </edge>
+    <edge source="Main" target="Podcast" relationship="CREATE">
+      <point x="-22.5" y="-30.0" />
+      <point x="395.2321428571429" y="395.0" />
+      <point x="338.875" y="395.0" />
+      <point x="338.875" y="385.0" />
+      <point x="271.0119047619048" y="385.0" />
+      <point x="59.0" y="54.5" />
+    </edge>
+    <edge source="SpotifyPOO" target="Utilizador" relationship="TO_MANY">
+      <point x="0.0" y="-66.5" />
+      <point x="252.5" y="575.0" />
+      <point x="280.4821428571429" y="575.0" />
+      <point x="71.25" y="66.5" />
+    </edge>
+    <edge source="Podcast" target="Episodio" relationship="TO_MANY">
+      <point x="-59.0" y="-54.5" />
+      <point x="153.0119047619048" y="235.0" />
+      <point x="145.8035714285715" y="235.0" />
+      <point x="-107.0" y="102.5" />
+    </edge>
+    <edge source="Utilizador" target="Podcast" relationship="TO_MANY">
+      <point x="-71.25" y="-66.5" />
+      <point x="137.9821428571429" y="395.0" />
+      <point x="99.88690476190482" y="395.0" />
+      <point x="99.88690476190482" y="385.0" />
+      <point x="153.0119047619048" y="385.0" />
+      <point x="-59.0" y="54.5" />
+    </edge>
+    <edge source="Main" target="Episodio" relationship="CREATE">
+      <point x="22.499999999999986" y="-30.0" />
+      <point x="440.2321428571429" y="235.0" />
+      <point x="454.94047619047626" y="235.0" />
+      <point x="454.94047619047626" y="225.0" />
+      <point x="359.80357142857144" y="225.0" />
+      <point x="106.99999999999997" y="102.5" />
+    </edge>
+    <edge source="SpotifyPOO" target="Podcast" relationship="DEPENDENCY">
+      <point x="101.0" y="-66.5" />
+      <point x="353.5" y="575.0" />
+      <point x="362.2321428571429" y="575.0" />
+      <point x="362.2321428571429" y="395.0" />
+      <point x="338.875" y="395.0" />
+      <point x="338.875" y="385.0" />
+      <point x="271.0119047619048" y="385.0" />
+      <point x="59.0" y="54.5" />
+    </edge>
+    <edge source="SpotifyPOO" target="Utilizador" relationship="DEPENDENCY">
+      <point x="-101.0" y="-66.5" />
+      <point x="151.5" y="575.0" />
+      <point x="137.9821428571429" y="575.0" />
+      <point x="-71.25" y="66.5" />
+    </edge>
+    <edge source="Podcast" target="Episodio" relationship="DEPENDENCY">
+      <point x="59.0" y="-54.5" />
+      <point x="271.0119047619048" y="235.0" />
+      <point x="454.94047619047626" y="235.0" />
+      <point x="454.94047619047626" y="225.0" />
+      <point x="359.80357142857144" y="225.0" />
+      <point x="106.99999999999997" y="102.5" />
+    </edge>
+    <edge source="Utilizador" target="Podcast" relationship="DEPENDENCY">
+      <point x="71.25" y="-66.5" />
+      <point x="280.4821428571429" y="395.0" />
+      <point x="338.875" y="395.0" />
+      <point x="338.875" y="385.0" />
+      <point x="271.0119047619048" y="385.0" />
+      <point x="59.0" y="54.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.15" showDependencies="true" x="425.3424618859399" y="252.7826086956522" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
