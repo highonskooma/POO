@@ -95,4 +95,24 @@ public class SpotifyPOO {
         }
         return maxEp;
     }
+
+    /**
+     * associa a cada valor de classificacao a lista dos epis´odios,
+     * de todos os podcasts, com essa mesma classificacao
+     * @return
+     */
+    public Map<Integer,List<Episodio>> episodiosPorClassf() {
+        HashMap<Integer,List<Episodio>> res = new HashMap<>();
+        for (Podcast p : this.podcasts.values()) {
+            for (Episodio e : p.getEpisodios()) {
+                if (res.containsKey(e.getClassificacao())) res.get(e.getClassificacao()).add(e);
+                else {
+                    ArrayList<Episodio> list = new ArrayList<>();
+                    list.add(e);
+                    res.put(e.getClassificacao(),list);
+                }
+            }
+        }
+        return res;
+    }
 }

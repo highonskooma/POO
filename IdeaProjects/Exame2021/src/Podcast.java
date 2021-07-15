@@ -1,5 +1,8 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class Podcast {
     String id;                 //identificador do podcast
@@ -24,6 +27,11 @@ public class Podcast {
 
     public void setEpisodios(List<Episodio> episodios) {
         this.episodios = episodios;
+    }
+
+    public Episodio getEpisodio(String idEpisodio) {
+        return episodios.stream().filter(ep -> ep.getNome().equals(idEpisodio))
+                .findFirst().orElse(null);
     }
 
     @Override

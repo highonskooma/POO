@@ -1,9 +1,12 @@
+import Exceptions.AlreadyPlayingException;
+
 import java.util.List;
 
 public class Utilizador {
     private String id;
     private String nome;
     private List<Podcast> subscricoes; //podcasts a q o user está subscrito
+    private Episodio isPlaying; //boleano que assinala se o user esta a reproduzir conteudo
 
     public Utilizador(String id, String nome, List<Podcast> subscricoes) {
         this.id = id;
@@ -35,6 +38,10 @@ public class Utilizador {
         this.subscricoes = subscricoes;
     }
 
+    public Episodio getIsPlaying() { return isPlaying; }
+
+    public void setPlaying(Episodio playing) { isPlaying = playing; }
+
     @Override
     public String toString() {
         return "Utilizador{" +
@@ -43,4 +50,15 @@ public class Utilizador {
                 ", subscricoes=" + subscricoes +
                 '}';
     }
+
+    public void playEpisodio(String idPodCast, String nomeEpisodio)
+            throws AlreadyPlayingException {
+        if (!(isPlaying == null)) throw new AlreadyPlayingException();
+        else {
+            for (Podcast p : subscricoes) {
+                if (p.getId().equals(idPodCast)) setPlaying(p.getEpisodio(nomeEpisodio));
+            }
+        }
+    }
+
 }
