@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/blackgaze/Documents/IdeaProjects/Exame2021/src</OriginalElement>
+  <nodes>
+    <node x="663.8101503759399" y="0.0">Episodio</node>
+    <node x="443.7144423558899" y="1436.0">SpotifyPOO</node>
+    <node x="1248.1412385129493" y="1532.0">UtilizadorPremium</node>
+    <node x="712.2144423558899" y="711.0">Exceptions.AlreadyPlayingException</node>
+    <node x="38.5" y="1135.0">Exceptions.UserCurrentlySubscribedException</node>
+    <node x="971.2144423558899" y="578.0">Podcast</node>
+    <node x="689.2144423558899" y="966.0">Utilizador</node>
+    <node x="767.02694235589" y="1872.0">Main</node>
+    <node x="378.5" y="1135.0">Exceptions.PodcastNotFoundException</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="SpotifyPOO" target="Exceptions.PodcastNotFoundException" relationship="CREATE">
+      <point x="-67.14285714285722" y="-187.0" />
+      <point x="611.5715852130327" y="1395.0" />
+      <point x="510.5" y="1395.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="SpotifyPOO" target="Episodio" relationship="DEPENDENCY">
+      <point x="-134.2857142857144" y="-187.0" />
+      <point x="544.4287280701756" y="1405.0" />
+      <point x="368.0" y="1405.0" />
+      <point x="368.0" y="558.0" />
+      <point x="614.3101503759399" y="558.0" />
+      <point x="614.3101503759399" y="548.0" />
+      <point x="770.8101503759399" y="548.0" />
+      <point x="-107.0" y="259.0" />
+    </edge>
+    <edge source="SpotifyPOO" target="Podcast" relationship="TO_MANY">
+      <point x="-5.6843418860808015E-14" y="-187.0" />
+      <point x="678.7144423558898" y="1415.0" />
+      <point x="653.0" y="1415.0" />
+      <point x="653.0" y="925.0" />
+      <point x="1032.9644423558898" y="925.0" />
+      <point x="-61.75" y="163.0" />
+    </edge>
+    <edge source="Main" target="Utilizador" relationship="CREATE">
+      <point x="13.333333333333371" y="-42.5" />
+      <point x="860.3602756892233" y="1831.0" />
+      <point x="1237.6412385129493" y="1831.0" />
+      <point x="1237.6412385129493" y="1385.0" />
+      <point x="831.7144423558899" y="1385.0" />
+      <point x="0.0" y="199.0" />
+    </edge>
+    <edge source="UtilizadorPremium" target="Episodio" relationship="TO_MANY">
+      <point x="134.625" y="-91.0" />
+      <point x="1562.2662385129493" y="1395.0" />
+      <point x="1400.5894423558898" y="1395.0" />
+      <point x="1400.5894423558898" y="548.0" />
+      <point x="1203.375" y="548.0" />
+      <point x="1203.375" y="538.0" />
+      <point x="984.8101503759399" y="538.0" />
+      <point x="107.0" y="259.0" />
+    </edge>
+    <edge source="Main" target="UtilizadorPremium" relationship="CREATE">
+      <point x="40.0" y="-42.5" />
+      <point x="887.02694235589" y="1841.0" />
+      <point x="1427.6412385129493" y="1841.0" />
+      <point x="0.0" y="91.0" />
+    </edge>
+    <edge source="UtilizadorPremium" target="Episodio" relationship="DEPENDENCY">
+      <point x="44.875" y="-91.0" />
+      <point x="1472.5162385129493" y="1405.0" />
+      <point x="1377.0" y="1405.0" />
+      <point x="1377.0" y="558.0" />
+      <point x="614.3101503759399" y="558.0" />
+      <point x="614.3101503759399" y="548.0" />
+      <point x="770.8101503759399" y="548.0" />
+      <point x="-107.0" y="259.0" />
+    </edge>
+    <edge source="UtilizadorPremium" target="Podcast" relationship="DEPENDENCY">
+      <point x="-44.875" y="-91.0" />
+      <point x="1382.7662385129493" y="1415.0" />
+      <point x="1366.0" y="1415.0" />
+      <point x="1366.0" y="945.0" />
+      <point x="1256.9904970760235" y="945.0" />
+      <point x="1256.9904970760235" y="925.0" />
+      <point x="1156.4644423558898" y="925.0" />
+      <point x="61.75" y="163.0" />
+    </edge>
+    <edge source="UtilizadorPremium" target="Utilizador" relationship="GENERALIZATION">
+      <point x="-134.625" y="-91.0" />
+      <point x="1293.0162385129493" y="1395.0" />
+      <point x="926.7144423558899" y="1395.0" />
+      <point x="95.0" y="199.0" />
+    </edge>
+    <edge source="Main" target="Podcast" relationship="CREATE">
+      <point x="66.66666666666663" y="-42.5" />
+      <point x="913.6936090225565" y="1851.0" />
+      <point x="1617.641238512949" y="1851.0" />
+      <point x="1617.6412385129493" y="945.0" />
+      <point x="1256.9904970760235" y="945.0" />
+      <point x="1256.9904970760235" y="925.0" />
+      <point x="1156.4644423558898" y="925.0" />
+      <point x="61.75" y="163.0" />
+    </edge>
+    <edge source="Utilizador" target="Exceptions.AlreadyPlayingException" relationship="CREATE">
+      <point x="0.0" y="-199.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="Main" target="Exceptions.UserCurrentlySubscribedException" relationship="DEPENDENCY">
+      <point x="-40.0" y="-42.5" />
+      <point x="807.02694235589" y="1841.0" />
+      <point x="198.0" y="1841.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="SpotifyPOO" target="Utilizador" relationship="TO_MANY">
+      <point x="67.14285714285711" y="-187.0" />
+      <point x="745.857299498747" y="1415.0" />
+      <point x="736.7144423558899" y="1415.0" />
+      <point x="-95.0" y="199.0" />
+    </edge>
+    <edge source="Podcast" target="Episodio" relationship="TO_MANY">
+      <point x="61.75" y="-163.0" />
+      <point x="1156.4644423558898" y="548.0" />
+      <point x="1203.375" y="548.0" />
+      <point x="1203.375" y="538.0" />
+      <point x="984.8101503759399" y="538.0" />
+      <point x="107.0" y="259.0" />
+    </edge>
+    <edge source="Main" target="Episodio" relationship="CREATE">
+      <point x="-66.66666666666674" y="-42.5" />
+      <point x="780.3602756892233" y="1851.0" />
+      <point x="28.0" y="1851.0" />
+      <point x="28.0" y="558.0" />
+      <point x="614.3101503759399" y="558.0" />
+      <point x="614.3101503759399" y="548.0" />
+      <point x="770.8101503759399" y="548.0" />
+      <point x="-107.0" y="259.0" />
+    </edge>
+    <edge source="Utilizador" target="Podcast" relationship="TO_MANY">
+      <point x="-114.0" y="-199.0" />
+      <point x="717.7144423558899" y="945.0" />
+      <point x="653.0" y="945.0" />
+      <point x="653.0" y="925.0" />
+      <point x="1032.9644423558898" y="925.0" />
+      <point x="-61.75" y="163.0" />
+    </edge>
+    <edge source="Utilizador" target="Episodio" relationship="DEPENDENCY">
+      <point x="-57.0" y="-199.0" />
+      <point x="774.7144423558899" y="935.0" />
+      <point x="695.4644423558899" y="935.0" />
+      <point x="695.4644423558899" y="558.0" />
+      <point x="614.3101503759399" y="558.0" />
+      <point x="614.3101503759399" y="548.0" />
+      <point x="770.8101503759399" y="548.0" />
+      <point x="-107.0" y="259.0" />
+    </edge>
+    <edge source="SpotifyPOO" target="Podcast" relationship="DEPENDENCY">
+      <point x="134.28571428571428" y="-187.0" />
+      <point x="813.0001566416042" y="1405.0" />
+      <point x="1176.7840956558061" y="1405.0" />
+      <point x="1176.7840956558061" y="945.0" />
+      <point x="1256.9904970760235" y="945.0" />
+      <point x="1256.9904970760235" y="925.0" />
+      <point x="1156.4644423558898" y="925.0" />
+      <point x="61.75" y="163.0" />
+    </edge>
+    <edge source="SpotifyPOO" target="Utilizador" relationship="DEPENDENCY">
+      <point x="201.42857142857144" y="-187.0" />
+      <point x="880.1430137844613" y="1415.0" />
+      <point x="1237.6412385129493" y="1415.0" />
+      <point x="1237.6412385129493" y="1385.0" />
+      <point x="831.7144423558899" y="1385.0" />
+      <point x="0.0" y="199.0" />
+    </edge>
+    <edge source="Podcast" target="Episodio" relationship="DEPENDENCY">
+      <point x="-61.75" y="-163.0" />
+      <point x="1032.9644423558898" y="558.0" />
+      <point x="614.3101503759399" y="558.0" />
+      <point x="614.3101503759399" y="548.0" />
+      <point x="770.8101503759399" y="548.0" />
+      <point x="-107.0" y="259.0" />
+    </edge>
+    <edge source="SpotifyPOO" target="Exceptions.UserCurrentlySubscribedException" relationship="CREATE">
+      <point x="-201.42857142857156" y="-187.0" />
+      <point x="477.28587092731834" y="1415.0" />
+      <point x="198.0" y="1415.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+    <edge source="Utilizador" target="Episodio" relationship="TO_ONE">
+      <point x="57.0" y="-199.0" />
+      <point x="888.7144423558899" y="935.0" />
+      <point x="1228.7144423558898" y="935.0" />
+      <point x="1228.7144423558898" y="548.0" />
+      <point x="1203.375" y="548.0" />
+      <point x="1203.375" y="538.0" />
+      <point x="984.8101503759399" y="538.0" />
+      <point x="107.0" y="259.0" />
+    </edge>
+    <edge source="Main" target="SpotifyPOO" relationship="CREATE">
+      <point x="-13.333333333333371" y="-42.5" />
+      <point x="833.6936090225565" y="1831.0" />
+      <point x="678.7144423558899" y="1831.0" />
+      <point x="0.0" y="187.0" />
+    </edge>
+    <edge source="Utilizador" target="Podcast" relationship="DEPENDENCY">
+      <point x="114.0" y="-199.0" />
+      <point x="945.7144423558899" y="945.0" />
+      <point x="1256.9904970760235" y="945.0" />
+      <point x="1256.9904970760235" y="925.0" />
+      <point x="1156.4644423558898" y="925.0" />
+      <point x="61.75" y="163.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8642640364188164" showDependencies="true" x="857.7529155943274" y="1084.813537002897" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

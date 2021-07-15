@@ -12,6 +12,7 @@ public class Utilizador {
         this.id = id;
         this.nome = nome;
         this.subscricoes = subscricoes;
+        this.isPlaying = null;
     }
 
     public String getId() {

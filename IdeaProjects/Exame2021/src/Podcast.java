@@ -13,6 +13,11 @@ public class Podcast {
         this.episodios = episodios;
     }
 
+    public Podcast(Podcast obj) {
+        this.id = obj.getId();
+        this.episodios = obj.getEpisodios();
+    }
+
     public String getId() {
         return id;
     }
@@ -40,5 +45,17 @@ public class Podcast {
                 "id='" + id + '\'' +
                 ", episodios=\n" + episodios +
                 "}";
+    }
+
+    public Podcast clone() {
+        return new Podcast(this);
+    }
+
+    public boolean equals(Object obj) {
+        if (obj==this) return true;
+        if (obj== null || obj.getClass()!=this.getClass()) return false;
+        Podcast p = (Podcast) obj;
+        return p.getId().equals(this.getId()) &&
+                p.getEpisodios().equals(this.getEpisodios());
     }
 }
