@@ -10,9 +10,15 @@
 /*********************************************************************************/
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import Exceptions.ElementNotRemovedException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
  * The test class CasaInteligenteTest.
@@ -128,10 +134,46 @@ public class CasaInteligenteTest {
         casaInte1.addToRoom("sala", "b1");
         casaInte1.addToRoom("sala", "s1");
         casaInte1.addToRoom("quarto", "s2");
-        assertTrue(casaInte1.roomHasDevice("sala", "b1"));
+        //assertTrue(casaInte1.roomHasDevice("sala", "b1"));
         assertTrue(casaInte1.roomHasDevice("sala", "s1"));
         assertFalse(casaInte1.roomHasDevice("sala", "s2"));
         assertTrue(casaInte1.roomHasDevice("quarto", "s2"));
+    }
+
+    @Test
+    public void testRoomConstructor() throws ElementNotRemovedException {
+        SmartBulb smartBul1 = new SmartBulb("b1");
+        SmartSpeaker smartSpe1 = new SmartSpeaker("s1");
+        SmartSpeaker smartSpe2 = new SmartSpeaker("s2");
+        ArrayList<SmartDevice> list = new ArrayList<>();
+        list.add(smartBul1);
+        list.add(smartSpe1);
+        list.add(smartSpe2);
+        CasaInteligente casaInte1 = new CasaInteligente(list);
+        assertTrue(casaInte1.roomHasDevice("sala", "b1"));
+        assertTrue(casaInte1.roomHasDevice("sala", "s1"));
+        assertTrue(casaInte1.roomHasDevice("sala", "s2"));
+    }
+
+    @Test
+    public void testRoomConsumption() throws ElementNotRemovedException {
+        SmartBulb smartBul1 = new SmartBulb("b1");
+        SmartSpeaker smartSpe1 = new SmartSpeaker("z1");
+        SmartSpeaker smartSpe2 = new SmartSpeaker("s2");
+        CasaInteligente casaInte1 = new CasaInteligente();
+        casaInte1.addDevice(smartBul1,"quarto");
+        casaInte1.addDevice(smartSpe1,"sala");
+        casaInte1.addDevice(smartSpe2,"sala");
+        casaInte1.remove("b1");
+        assertFalse(casaInte1.hasRoom("quarto"));
+        casaInte1.addDevice(smartBul1,"quarto");
+        System.out.println("rooms"+casaInte1.getRooms());
+        //Iterator it = casaInte1.devicesPorConsumoCrescente();
+        //while (it.hasNext()) System.out.println(it.next());
+        ArrayList<SmartDevice> al = casaInte1.devicesPorConsumoCrescente();
+        assertEquals("b1", al.get(0).getID());
+        assertEquals("z1", al.get(1).getID());
+        assertEquals("s2", al.get(2).getID());
     }
 
 

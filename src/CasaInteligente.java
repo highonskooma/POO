@@ -1,7 +1,7 @@
-import Exceptions.NoDeviceException;
+import Exceptions.ElementNotRemovedException;
 
-import java.awt.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CasaInteligente {
     private String morada;
@@ -26,6 +26,30 @@ public class CasaInteligente {
         this.morada = o.getMorada();
         this.rooms = o.getRooms();
     }
+
+    public CasaInteligente(Collection<SmartDevice> devices) {
+        HashMap<String, ArrayList<SmartDevice>> rooms = new HashMap<>();
+        ArrayList<SmartDevice> array = new ArrayList<>();
+        String sala = "sala";
+        rooms.put(sala,array);
+        for (SmartDevice sd : devices) {rooms.get(sala).add(sd);}
+        this.rooms = rooms;
+    }
+/*
+    public CasaInteligente(Collection<SmartDevice> devices) {
+        Iterator<SmartDevice> it = devices.iterator();
+        HashMap<String, ArrayList<SmartDevice>> rooms = new HashMap<>();
+        ArrayList<SmartDevice> array = new ArrayList<>();
+        String sala = "sala";
+        rooms.put(sala,array);
+        while (it.hasNext()) {
+            SmartDevice device = it.next();
+            rooms.get(sala).add(device);
+        }
+        this.rooms = rooms;
+    }
+
+ */
 
     public String getMorada() {
         return this.morada;
@@ -59,13 +83,21 @@ public class CasaInteligente {
             }
         }
     }
+/*
+    public addToRoom(String quarto,String ID) {
+        for (HashMap.Entry<String, ArrayList<SmartDevice>> entry : rooms.entrySet()) {
+            if (entry.getValue().stream().anyMatch(a->a.getID().equals(ID))) {
+                if (!entry.getKey().equals(quarto))
+            }
+        }
+    }*/
 
     public void addToRoom(String quarto,String ID) {
         int flag = 0;
         for (HashMap.Entry<String, ArrayList<SmartDevice>> entry : this.rooms.entrySet()) {
             for (SmartDevice sd : entry.getValue()) {
-                if (ID == sd.getID()) {
-                    if (quarto == entry.getKey()) {
+                if (ID.equals(sd.getID())) {
+                    if (quarto.equals(entry.getKey())) {
                         flag = 1;
                         break;
                     } else {
@@ -79,7 +111,7 @@ public class CasaInteligente {
             }
         }
         if (flag == 0) {
-            ArrayList<SmartDevice> a = new ArrayList<SmartDevice>();
+            ArrayList<SmartDevice> a = new ArrayList<>();
             SmartDevice sd = new SmartDevice(ID);
             a.add(sd);
             this.rooms.put(quarto, a);
@@ -133,6 +165,11 @@ public class CasaInteligente {
     }
 
     public boolean roomHasDevice(String room,String ID) {
+        if (rooms.containsKey(room)) return rooms.get(room).stream().anyMatch(a->a.getID().equals(ID));
+        else return false;
+    }
+/*
+    public boolean roomHasDevice2(String room,String ID) {
         for (HashMap.Entry<String, ArrayList<SmartDevice>> entry : this.rooms.entrySet()) {
             for (SmartDevice device : entry.getValue()) {
                 if (device.getID() == ID && entry.getKey() == room) {
@@ -141,6 +178,46 @@ public class CasaInteligente {
             }
         }
         return false;
+    }
+
+ */
+
+    public void remove(String id) throws ElementNotRemovedException {
+        int flag=0;
+        String room = null;
+        for (Map.Entry<String,ArrayList<SmartDevice>> entry : rooms.entrySet()) {
+            for (SmartDevice sd : entry.getValue()) {
+                if (sd.getID().equals(id)) {
+                    rooms.get(entry.getKey()).remove(sd);
+                    room = entry.getKey();
+                    //if (entry.getValue().isEmpty()) rooms.remove(entry.getKey());
+                    flag=1;
+                    break;
+                }
+            }
+        }
+        if (flag==0)
+            throw new ElementNotRemovedException();
+        if (room!=null) rooms.remove(room);
+    }
+
+    class customComparator implements Comparator<SmartDevice> {
+        @Override
+        public int compare(SmartDevice sd1,SmartDevice sd2) {
+            return sd1.getID().compareTo(sd2.getID());
+        }
+    }
+
+    public ArrayList<SmartDevice> devicesPorConsumoCrescente() {
+        ArrayList<SmartDevice> group = new ArrayList<>();
+        for (ArrayList<SmartDevice> list : rooms.values()) {
+            list.stream().map(group::add).collect(Collectors.toList());
+            //System.out.println(group);
+        }
+        customComparator c = new customComparator();
+        List<SmartDevice> res = group.stream().sorted(c).collect(Collectors.toList());
+        return group;
+        //return group.iterator();
     }
 
 
