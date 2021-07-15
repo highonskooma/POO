@@ -1,8 +1,10 @@
+package Exame2021;
+
 import Exceptions.AlreadyPlayingException;
 
 import java.util.List;
 
-public class Utilizador {
+public class Utilizador implements InterfaceExemplo {
     private String id;
     private String nome;
     private List<Podcast> subscricoes; //podcasts a q o user está subscrito
@@ -45,7 +47,7 @@ public class Utilizador {
 
     @Override
     public String toString() {
-        return "Utilizador{" +
+        return "Exame2021.Utilizador{" +
                 "id='" + id + '\'' +
                 ", nome='" + nome + '\'' +
                 ", subscricoes=" + subscricoes +
@@ -61,5 +63,18 @@ public class Utilizador {
             }
         }
     }
+
+
+    @Override
+    public void play(String id) {
+        System.out.println("The id "+id+" is currently playing.\n");
+        run();
+    }
+
+    @Override
+    public boolean run() {
+        return true;
+    }
+
 
 }

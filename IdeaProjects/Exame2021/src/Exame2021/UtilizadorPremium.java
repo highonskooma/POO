@@ -1,3 +1,5 @@
+package Exame2021;
+
 import Exceptions.AlreadyPlayingException;
 
 import java.io.FileWriter;
@@ -5,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UtilizadorPremium extends Utilizador {
+public class UtilizadorPremium extends Utilizador implements InterfaceExemplo  {
     private List<Episodio> waitingList;
 
     public UtilizadorPremium(String id, String nome, List<Podcast> subscricoes) {
@@ -41,6 +43,11 @@ public class UtilizadorPremium extends Utilizador {
         }
         fw.flush();
         fw.close();
+    }
+
+    public boolean testInstance() {
+        if (this instanceof InterfaceExemplo) return true;
+        else return false;
     }
 
 }

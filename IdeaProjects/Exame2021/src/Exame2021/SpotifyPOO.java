@@ -1,3 +1,5 @@
+package Exame2021;
+
 import Exceptions.PodcastNotFoundException;
 import Exceptions.UserCurrentlySubscribedException;
 
@@ -8,6 +10,7 @@ import java.util.*;
 public class SpotifyPOO {
     HashMap<String,Podcast> podcasts; //(id podcast,obj podcast)
     HashMap<String,Utilizador> utilizadores; //(id user,user)
+
 
     public SpotifyPOO() {
         this.podcasts = new HashMap<>();

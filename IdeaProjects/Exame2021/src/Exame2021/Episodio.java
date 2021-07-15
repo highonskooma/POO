@@ -1,3 +1,5 @@
+package Exame2021;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
@@ -70,7 +72,7 @@ public class Episodio {
 
     @Override
     public String toString() {
-        return "Episodio{" +
+        return "Exame2021.Episodio{" +
                 "nome='" + nome + '\'' +
                 ", duracao=" + duracao +
                 ", classificacao=" + classificacao +

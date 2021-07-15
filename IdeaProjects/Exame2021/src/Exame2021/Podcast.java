@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-import java.util.Comparator;
+package Exame2021;
+
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 public class Podcast {
     String id;                 //identificador do podcast
@@ -41,7 +39,7 @@ public class Podcast {
 
     @Override
     public String toString() {
-        return "Podcast{" +
+        return "Exame2021.Podcast{" +
                 "id='" + id + '\'' +
                 ", episodios=\n" + episodios +
                 "}";

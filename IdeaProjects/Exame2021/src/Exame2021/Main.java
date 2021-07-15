@@ -1,17 +1,14 @@
+package Exame2021;
+
 import Exceptions.AlreadyPlayingException;
 import Exceptions.PodcastNotFoundException;
 import Exceptions.UserCurrentlySubscribedException;
 
 import java.io.IOException;
-import java.sql.Array;
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) throws PodcastNotFoundException,
@@ -33,9 +30,9 @@ public class Main {
         ArrayList<Episodio> list2 = new ArrayList<>();
         list2.add(e4);
 
-        Podcast p1 = new Podcast("Podcast 1",list1);
+        Podcast p1 = new Podcast("Exame2021.Podcast 1",list1);
         System.out.println(p1.getEpisodio("Episode 2"));
-        Podcast p2 = new Podcast("Podcast 2",list2);
+        Podcast p2 = new Podcast("Exame2021.Podcast 2",list2);
 
         ArrayList<Podcast> listPodcast1 = new ArrayList<>();
         listPodcast1.add(p1);
@@ -58,7 +55,7 @@ public class Main {
         spoo.addUser(u1);
         spoo.addUser(u2);
 
-        System.out.println("Episodio mais longo: "+spoo.getEpisodioMaisLongo(u2.getId()));
+        System.out.println("Exame2021.Episodio mais longo: "+spoo.getEpisodioMaisLongo(u2.getId()));
         try {
             spoo.remove(p2.getId());
         } catch (UserCurrentlySubscribedException e) {};
