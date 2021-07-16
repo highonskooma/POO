@@ -84,4 +84,11 @@ public class SmartDeviceTest {
         smartDev1.setOn(false);
         assertFalse(smartDev1.getOn());
     }
+
+    @Test
+    public void testOn() {
+        SmartDevice smartDev1 = new SmartDevice("sd1",3.25);
+        smartDev1.turnOn();
+        assertTrue(smartDev1.getOn());
+    }
 }

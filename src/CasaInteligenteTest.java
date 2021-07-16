@@ -12,6 +12,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import Exceptions.ElementNotRemovedException;
+import Exceptions.NoDeviceException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * The test class CasaInteligenteTest.
@@ -156,10 +158,10 @@ public class CasaInteligenteTest {
     }
 
     @Test
-    public void testRoomConsumption() throws ElementNotRemovedException {
-        SmartBulb smartBul1 = new SmartBulb("b1");
-        SmartSpeaker smartSpe1 = new SmartSpeaker("z1");
-        SmartSpeaker smartSpe2 = new SmartSpeaker("s2");
+    public void testRoomConsumption() throws ElementNotRemovedException, NoDeviceException {
+        SmartBulb smartBul1 = new SmartBulb("b1",2,2.45);
+        SmartSpeaker smartSpe1 = new SmartSpeaker("z1","channel2",3.79);
+        SmartSpeaker smartSpe2 = new SmartSpeaker("s2","channel1",1.05);
         CasaInteligente casaInte1 = new CasaInteligente();
         casaInte1.addDevice(smartBul1,"quarto");
         casaInte1.addDevice(smartSpe1,"sala");
@@ -167,13 +169,12 @@ public class CasaInteligenteTest {
         casaInte1.remove("b1");
         assertFalse(casaInte1.hasRoom("quarto"));
         casaInte1.addDevice(smartBul1,"quarto");
-        System.out.println("rooms"+casaInte1.getRooms());
-        //Iterator it = casaInte1.devicesPorConsumoCrescente();
-        //while (it.hasNext()) System.out.println(it.next());
-        ArrayList<SmartDevice> al = casaInte1.devicesPorConsumoCrescente();
-        assertEquals("b1", al.get(0).getID());
-        assertEquals("z1", al.get(1).getID());
-        assertEquals("s2", al.get(2).getID());
+        System.out.println("rooms: "+casaInte1.getRooms());
+        List<SmartDevice> al = casaInte1.devicesPorConsumoCrescente();
+        assertEquals("s2", al.get(0).getID());
+        assertEquals("b1", al.get(1).getID());
+        assertEquals("z1", al.get(2).getID());
+        assertEquals("quarto", casaInte1.divisaoMaisEconomica());
     }
 
 

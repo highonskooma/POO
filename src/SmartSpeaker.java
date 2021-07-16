@@ -27,6 +27,12 @@ public class SmartSpeaker extends SmartDevice {
         this.volume = volume;
     }
 
+    public SmartSpeaker(String id, String channel, double consumoPorHora) {
+        super(id, consumoPorHora);
+        this.canal = channel;
+        this.volume = 10;
+    }
+
     public SmartSpeaker(SmartSpeaker o){
         super(o);
         this.canal = o.getChannel();

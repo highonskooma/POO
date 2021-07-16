@@ -1,7 +1,9 @@
 import Exceptions.ElementNotRemovedException;
+import Exceptions.NoDeviceException;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CasaInteligente {
     private String morada;
@@ -201,25 +203,59 @@ public class CasaInteligente {
         if (room!=null) rooms.remove(room);
     }
 
-    class customComparator implements Comparator<SmartDevice> {
+
+    /**
+     * devolve um iterador com ordena¸c˜ao crescente por consumo
+     * @return
+     */
+    static class consuptionComparator implements Comparator<SmartDevice> {
         @Override
         public int compare(SmartDevice sd1,SmartDevice sd2) {
-            return sd1.getID().compareTo(sd2.getID());
+            return Double.compare(sd1.getConsumoPorHora(),sd2.getConsumoPorHora());
         }
     }
 
-    public ArrayList<SmartDevice> devicesPorConsumoCrescente() {
+    public List<SmartDevice> devicesPorConsumoCrescente() {
         ArrayList<SmartDevice> group = new ArrayList<>();
         for (ArrayList<SmartDevice> list : rooms.values()) {
             list.stream().map(group::add).collect(Collectors.toList());
             //System.out.println(group);
         }
-        customComparator c = new customComparator();
+        System.out.println("group: "+group);
+        consuptionComparator c = new consuptionComparator();
         List<SmartDevice> res = group.stream().sorted(c).collect(Collectors.toList());
-        return group;
-        //return group.iterator();
+        return res;
     }
 
+    /**
+     * determina a divis˜ao da casa que apresenta o menor consumo. Se duas divis˜oes apresentarem o
+     * mesmo consumo ent˜ao dever´a ser devolvida a divis˜ao cuja designa¸c˜ao tem o maior valor
+     * alfab´etico
+     * @return
+     */
+    static class consuptionComparatorRev implements Comparator<SmartDevice> {
+        public int compare(SmartDevice sd1, SmartDevice sd2) {
+            int consumption = Double.compare(sd2.getConsumoPorHora(),sd1.getConsumoPorHora());
+            int name = sd1.getID().compareTo(sd2.getID());
+            return (consumption==0) ? name : consumption;
+        }
+    }
+
+    public String divisaoMaisEconomica() throws NoDeviceException {
+        double min = 100.0;
+        String res = null;
+        consuptionComparatorRev c = new consuptionComparatorRev();
+        for (Map.Entry<String,ArrayList<SmartDevice>> entry : rooms.entrySet()) {
+            Double d = entry.getValue().stream().sorted(c).map(SmartDevice::getConsumoPorHora)
+                    .reduce(Double::sum).orElseThrow(NoDeviceException::new);
+            //System.out.println(d);
+            if (min>d) {
+                min = d;
+                res = entry.getKey();
+            }
+        }
+        return res;
+    }
 
 
 }

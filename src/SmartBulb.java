@@ -19,6 +19,11 @@ public class SmartBulb extends SmartDevice {
         this.tonalidade = tonalidade;
     }
 
+    public SmartBulb(String id, int tone, double consumoPorHora) {
+        super(id, consumoPorHora);
+        this.tonalidade = tone;
+    }
+
     public SmartBulb(String id,boolean estado,int tonalidade){
         super(id,estado);
         this.tonalidade = tonalidade;
@@ -36,7 +41,9 @@ public class SmartBulb extends SmartDevice {
         if(t==0||t==1||t==2){this.tonalidade=t;}
     }
 
-
+    public double totalConsumo(){
+        return super.totalConsumo() * tonalidade;
+    }
 
 
 }
